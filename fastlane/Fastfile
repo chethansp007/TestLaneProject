@@ -1,0 +1,28 @@
+# Minimum version of fastlane
+fastlane_version "1.32.1"
+ 
+default_platform :ios
+ 
+platform :ios do
+ 
+  # 1 
+  desc "Creating a code signing certificate and provisioning profile"
+  # 2
+  desc "Create ipa"
+  lane :build do
+    gym 
+  end
+ 
+  # Push to Hockey
+  hockey(
+    api_token: '177a3420e6a74c87bcbdbcb34d250f55',
+    notes_type: "1",
+    ipa: './build/TestLaneProject.ipa',
+    notes: "Testing"
+  )
+
+  error do |lane, exception|
+    # This block is called, if there was an error running a specific lane.
+  end
+ 
+end
