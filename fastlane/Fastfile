@@ -11,8 +11,10 @@ platform :ios do
   desc "Create ipa"
   lane :build do
     gym 
+    uploadToHockey
   end
  
+ lane :uploadToHockey do
   # Push to Hockey
   hockey(
     api_token: '177a3420e6a74c87bcbdbcb34d250f55',
@@ -20,6 +22,7 @@ platform :ios do
     ipa: './build/TestLaneProject.ipa',
     notes: "Testing"
   )
+  end
 
   error do |lane, exception|
     # This block is called, if there was an error running a specific lane.

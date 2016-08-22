@@ -13,6 +13,11 @@ fastlane ios build
 Creating a code signing certificate and provisioning profile
 
 Create ipa
+### ios uploadToHockey
+```
+fastlane ios uploadToHockey
+```
+
 
 ----
 
